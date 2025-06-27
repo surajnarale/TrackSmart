@@ -40,15 +40,50 @@ It enables seamless operations for managing students, faculty, subjects, and att
 ---
 
 ## 🧱 Project Structure
+<pre>
+TrackSmart/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── tracksmart/
+│       │           ├── client/
+│       │           │   └── TrackSmartApplication.java        # Main Spring Boot class
+│       │           ├── controller/                           # REST API Controllers
+│       │           │   ├── StudentController.java
+│       │           │   ├── SubjectController.java
+│       │           │   ├── FacultyController.java
+│       │           │   ├── AttendanceController.java
+│       │           │   └── UserController.java
+│       │           ├── services/                             # Business logic layer
+│       │           │   ├── StudentService.java
+│       │           │   ├── SubjectService.java
+│       │           │   ├── FacultyService.java
+│       │           │   ├── AttendanceService.java
+│       │           │   └── UserService.java
+│       │           ├── dao/                                  # Repository interfaces (DAO)
+│       │           │   ├── StudentRepository.java
+│       │           │   ├── SubjectRepository.java
+│       │           │   ├── FacultyRepository.java
+│       │           │   ├── AttendanceRepository.java
+│       │           │   └── UserRepository.java
+│       │           ├── entity/                               # JPA Entities
+│       │           │   ├── Student.java
+│       │           │   ├── Subject.java
+│       │           │   ├── Faculty.java
+│       │           │   ├── Attendance.java
+│       │           │   └── User.java
+│       │           └── utility/                              # Utility/helper classes
+│       │               └── ValidationUtils.java
+│       └── resources/
+│           ├── application.properties                        # Spring Boot config
+│           └── data.sql                                      # Optional sample data
+├── .gitignore
+├── pom.xml                                                   # Maven configuration
+└── README.md                                                 # Project documentation
+</pre>
 
-com.tracksmart
-├── controller # Handles HTTP requests (API layer)
-├── service # Core business logic layer
-├── dao # Data persistence layer (JPA repositories)
-├── entity # POJOs representing DB tables
-├── dto # Data Transfer Objects (if used)
-└── exception # Centralized exception handling
-
+---
 
 
 
@@ -141,16 +176,13 @@ cd TrackSmart
 Update your application.properties file with the correct database credentials:
 
 properties
-Copy
-Edit
-spring.datasource.url=jdbc:mysql://localhost:3306/tracksmart_db
+
+spring.datasource.url=jdbc:mysql://localhost:3306/attendance
 spring.datasource.username=root
-spring.datasource.password=your_password
+spring.datasource.password=Pass@123
 3️⃣ Run the application
 
-bash
-Copy
-Edit
+
 mvn spring-boot:run
 4️⃣ Test with Postman
 
@@ -159,8 +191,7 @@ Use the above endpoints to interact with the system.
 🧪 Sample JSON Payloads
 ➕ Insert Student
 json
-Copy
-Edit
+
 {
   "name": "Suraj Narale",
   "email": "suraj@example.com",
